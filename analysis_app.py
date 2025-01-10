@@ -83,7 +83,7 @@ fig.update_layout(
     width=1200,   # Width of the chart
     height=600,  # Height of the chart
     title_font_size=20,  # Font size of the title
-    title_x=0.5  # Center the title,
+    title_x=0.5,  # Center the title,
     legend=dict(
         x=0.5,  # Position on the horizontal axis (0: left, 1: right)
         y=0.5,  # Position on the vertical axis (0: bottom, 1: top)
