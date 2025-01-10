@@ -83,8 +83,22 @@ fig.update_layout(
     width=1200,   # Width of the chart
     height=600,  # Height of the chart
     title_font_size=20,  # Font size of the title
-    title_x=0.5  # Center the title
+    title_x=0.5  # Center the title,
+    legend=dict(
+        x=0.5,  # Position on the horizontal axis (0: left, 1: right)
+        y=0.5,  # Position on the vertical axis (0: bottom, 1: top)
+        xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
+        yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
+        font=dict(
+            size=9,  # Font size for legend text
+            color="blue"  # Font color
+        ),
+        bgcolor="lightgrey",  # Background color
+        bordercolor="black",  # Border color
+        borderwidth=1,  # Border width
+    )
 )
+
 
 fig.update_traces(
     textposition = 'outside',
@@ -110,8 +124,22 @@ fig.update_layout(
     width = 1150,
     height = 500,
     xaxis_title = 'Purpose',
-    title = "Stacked bar Plot to check the Geo political zones against purpose of health centers"
+    title = "Stacked bar Plot to check the Geo political zones against purpose of health centers",
+    legend=dict(
+        x=0.5,  # Position on the horizontal axis (0: left, 1: right)
+        y=0.5,  # Position on the vertical axis (0: bottom, 1: top)
+        xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
+        yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
+        font=dict(
+            size=9,  # Font size for legend text
+            color="blue"  # Font color
+        ),
+        bgcolor="lightgrey",  # Background color
+        bordercolor="black",  # Border color
+        borderwidth=1,  # Border width
+    )
 )
+
 
 fig.update_traces(
     texttemplate = '%{y}'
