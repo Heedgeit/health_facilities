@@ -90,7 +90,7 @@ fig.update_layout(
         xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
         yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
         font=dict(
-            size=9,  # Font size for legend text
+            size=6,  # Font size for legend text
             color="black"  # Font color
         ),
         itemwidth=30,
@@ -130,19 +130,19 @@ fig.update_layout(
     title_font_size=14,  # Font size of the title
     title_x=0.0,  # Center the title,
     legend=dict(
-        x=0.7,  # Position on the horizontal axis (0: left, 1: right)
+        x=0.6,  # Position on the horizontal axis (0: left, 1: right)
         y=0.7,  # Position on the vertical axis (0: bottom, 1: top)
         xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
         yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
         font=dict(
-            size=9,  # Font size for legend text
+            size=6,  # Font size for legend text
             color="black"  # Font color
         ),
         itemwidth = 30,
         bgcolor=None,  # Background color
         bordercolor=None,  # Border color
-        borderwidth=1,  # Border width
-        tracegroupgap = 0.1
+        borderwidth=0,  # Border width
+        tracegroupgap = 0
     )
 )
 
