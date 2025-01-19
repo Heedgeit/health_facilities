@@ -150,3 +150,5 @@ fig.update_layout(
 fig.update_traces(
     texttemplate = '%{y}'
 )
+
+tab3.plotly_chart(fig, use_container_width=False)
