@@ -56,8 +56,8 @@ fig = px.pie(
 fig.update_layout(
     width=600,   # Width of the chart
     height=600,  # Height of the chart
-    title_font_size=20,  # Font size of the title
-    title_x=0.5  # Center the title
+    title_font_size=14,  # Font size of the title
+    title_x=0.2  # Center the title
 )
 fig.update_traces(
     textinfo="value+percent",  # Display labels and values
@@ -74,19 +74,19 @@ own = {'Ownership': ownership, 'Values': ownership_values}
 
 fig = px.bar(
     data_frame= own,
-    x= 'Values',
-    y= 'Ownership',
+    x= 'Ownership',
+    y= 'Values',
     color = 'Ownership',
     title = 'Health Centers Ownership distributions'
 )
 fig.update_layout(
-    width=1200,   # Width of the chart
+    width=None,   # Width of the chart
     height=600,  # Height of the chart
-    title_font_size=20,  # Font size of the title
-    title_x=0.5,  # Center the title,
+    title_font_size=14,  # Font size of the title
+    title_x=0.0,  # Center the title,
     legend=dict(
-        x=0.5,  # Position on the horizontal axis (0: left, 1: right)
-        y=0.5,  # Position on the vertical axis (0: bottom, 1: top)
+        x=1.0,  # Position on the horizontal axis (0: left, 1: right)
+        y=0.7,  # Position on the vertical axis (0: bottom, 1: top)
         xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
         yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
         font=dict(
@@ -102,10 +102,10 @@ fig.update_layout(
 
 fig.update_traces(
     textposition = 'outside',
-    texttemplate = '%{x}'
+    texttemplate = '%{y}'
 )
 
-tab2.plotly_chart(fig, use_container_width= True)
+tab2.plotly_chart(fig, use_container_width= False)
 
 df = gdf.groupby(['Geo_zones','ownership_',])['facility_1'].count().reset_index()
 
@@ -121,13 +121,15 @@ fig = px.bar(data_frame=df,
              barmode= 'group')
 
 fig.update_layout(
-    width = 1150,
+    width = None,
     height = 500,
     xaxis_title = 'Purpose',
-    title = "Stacked bar Plot to check the Geo political zones against purpose of health centers",
+    title = "Grouped bar Plot to check the Geo political zones against purpose of health centers",
+    title_font_size=14,  # Font size of the title
+    title_x=0.0,  # Center the title,
     legend=dict(
-        x=0.5,  # Position on the horizontal axis (0: left, 1: right)
-        y=0.5,  # Position on the vertical axis (0: bottom, 1: top)
+        x=0.6,  # Position on the horizontal axis (0: left, 1: right)
+        y=0.7,  # Position on the vertical axis (0: bottom, 1: top)
         xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
         yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
         font=dict(
@@ -145,4 +147,4 @@ fig.update_traces(
     texttemplate = '%{y}'
 )
 
-tab3.plotly_chart(fig, use_container_width=True)
+tab3.plotly_chart(fig, use_container_width=False)
