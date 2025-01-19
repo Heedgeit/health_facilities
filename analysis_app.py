@@ -91,11 +91,13 @@ fig.update_layout(
         yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
         font=dict(
             size=9,  # Font size for legend text
-            color="blue"  # Font color
+            color="black"  # Font color
         ),
-        bgcolor="lightgrey",  # Background color
-        bordercolor="black",  # Border color
-        borderwidth=1,  # Border width
+        itemwidth=30,
+        bgcolor=None,  # Background color
+        bordercolor=None,  # Border color
+        borderwidth=0.5,  # Border width
+        tracegroupgap=0.1
     )
 )
 
@@ -128,17 +130,19 @@ fig.update_layout(
     title_font_size=14,  # Font size of the title
     title_x=0.0,  # Center the title,
     legend=dict(
-        x=0.6,  # Position on the horizontal axis (0: left, 1: right)
+        x=0.7,  # Position on the horizontal axis (0: left, 1: right)
         y=0.7,  # Position on the vertical axis (0: bottom, 1: top)
         xanchor="center",  # Horizontal anchor ('auto', 'left', 'center', 'right')
         yanchor="middle",  # Vertical anchor ('auto', 'top', 'middle', 'bottom')
         font=dict(
             size=9,  # Font size for legend text
-            color="blue"  # Font color
+            color="black"  # Font color
         ),
-        bgcolor="lightgrey",  # Background color
-        bordercolor="black",  # Border color
+        itemwidth = 30,
+        bgcolor=None,  # Background color
+        bordercolor=None,  # Border color
         borderwidth=1,  # Border width
+        tracegroupgap = 0.1
     )
 )
 
@@ -146,5 +150,3 @@ fig.update_layout(
 fig.update_traces(
     texttemplate = '%{y}'
 )
-
-tab3.plotly_chart(fig, use_container_width=False)
