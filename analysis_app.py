@@ -152,3 +152,27 @@ fig.update_traces(
 )
 
 tab3.plotly_chart(fig, use_container_width=False)
+
+df1 = gdf.groupby(['ownership','Geo_zones'])['ownership_'].count().reset_index()
+
+df1['count'] = df1['ownership_']
+df1 = df1.drop('ownership_',axis = 1)
+
+fig = px.bar(data_frame=df1,
+              x='Geo_zones',
+              y='count', 
+              color= 'ownership',
+             barmode= 'stack')
+
+fig.update_layout(
+    width = None,
+    height = 500,
+    xaxis_title = 'Geopolitical Zones',
+    title = "Stacked bar Plot to check the Geo political zones against ownership of health centers"
+)
+
+fig.update_traces(
+    texttemplate = '%{y}'
+)
+
+tab1.plotly_chart(fig, use_container_width=False)
