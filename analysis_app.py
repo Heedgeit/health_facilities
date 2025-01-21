@@ -1,6 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 import seaborn as sns
 import plotly.express as px 
 import folium
@@ -8,9 +9,11 @@ from folium.plugins import HeatMap, MarkerCluster
 from folium import Choropleth, Circle
 import streamlit as st
 
-tab1,tab2,tab3 = st.tabs(["pie","bar","grouped bar"])
+tab1,tab2,tab3 = st.tabs(["plotly","geopandas","grouped bar"])
 
 gdf = gpd.read_file("NGA_health.shp")
+
+boundaries = gpd.read_file('boundary.shp')
 
 ss = ['Bayelsa','Rivers','Delta','Cross River','Akwa Ibom','Edo']
 se = ['Abia','Anambra','Ebonyi','Enugu','Imo']
@@ -176,3 +179,77 @@ fig.update_traces(
 )
 
 tab1.plotly_chart(fig, use_container_width=False)
+
+colors = {"Public" : 'green',"Private" : 'blue', "Unknown" : 'red' }
+
+
+fig,ax = plt.subplots(figsize=(14,10))
+gdf.plot(column= 'ownership', ax=ax, color= gdf['ownership'].map(colors), edgecolor='grey')
+boundaries.plot(ax=ax, color = 'None')
+legend_handles = [Patch(color=color, label= ownership) for ownership, color in colors.items()]
+ax.legend(
+    handles=legend_handles,
+    title="ownership",
+    loc="lower right",
+    fontsize=10,
+    title_fontsize=12,
+)
+ax.set_title("Nigeria Health Facilities Ownership Map")
+
+plt.savefig("geo_ownership.png", bbox_inches = 'tight')
+
+tab2.image("geo_ownership.png", caption= 'Health Facilities', use_container_width=True)
+
+color_zones = {
+    "North West" : 'green',
+    "North Central" : 'yellow',
+    "South West" : 'brown',
+    "South East" : 'blue',
+    "North East": 'grey',
+    "South South" : 'black'}
+
+
+fig,ax = plt.subplots(figsize=(14,10))
+gdf.plot(column= 'Geo_zones', ax=ax, color= gdf['Geo_zones'].map(color_zones), edgecolor='grey')
+boundaries.plot(ax=ax, color = 'None')
+legend_handles = [Patch(color=color, label= zones) for zones, color in color_zones.items()]
+ax.legend(
+    handles=legend_handles,
+    title="Geo_zones",
+    loc="lower right",
+    fontsize=10,
+    title_fontsize=12,
+)
+ax.set_title("Nigeria Health Facilities Zones Map")
+
+plt.savefig("geo_ownership.png", bbox_inches = 'tight')
+
+tab2.image("geo_ownership.png", caption= 'Health Facilities', use_container_width=True)
+
+color_purpose = {
+    "Federal Government" : 'green',
+    "Local Government" : 'yellow',
+    "Not For Profit" : 'orange',
+    "State Government" : 'blue',
+    "For Profit": 'grey',
+    "Military & Paramilitary formations" : 'black',
+    "Unknown" : 'red'}
+
+
+fig,ax = plt.subplots(figsize=(14,10))
+gdf.plot(column= 'ownership_', ax=ax, color= gdf['ownership_'].map(color_purpose), edgecolor='grey')
+boundaries.plot(ax=ax, color = 'None')
+legend_handles = [Patch(color=color, label= purpose) for purpose, color in color_purpose.items()]
+ax.legend(
+    handles=legend_handles,
+    title="Purpose",
+    loc="lower right",
+    fontsize=10,
+    title_fontsize=12,
+)
+ax.set_title("Nigeria Health Facilities Purpose Map")
+
+plt.savefig("geo_ownership.png", bbox_inches = 'tight')
+
+tab2.image("geo_ownership.png", caption= 'Health Facilities', use_container_width=True)
+
