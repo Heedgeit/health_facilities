@@ -9,7 +9,7 @@ from folium.plugins import HeatMap, MarkerCluster
 from folium import Choropleth, Circle
 import streamlit as st
 
-tab1,tab2,tab3 = st.tabs(["plotly","geopandas","grouped bar"])
+tab1,tab2,tab3 = st.tabs(["plotly","geopandas","folium"])
 
 gdf = gpd.read_file("NGA_health.shp")
 
@@ -198,7 +198,7 @@ ax.set_title("Nigeria Health Facilities Ownership Map")
 
 plt.savefig("geo_ownership.png", bbox_inches = 'tight')
 
-tab2.image("geo_ownership.png", caption= 'Health Facilities', use_container_width=True)
+tab2.image("geo_ownership.png", caption= 'Health Facilities')
 
 color_zones = {
     "North West" : 'green',
@@ -224,7 +224,7 @@ ax.set_title("Nigeria Health Facilities Zones Map")
 
 plt.savefig("geo_ownership.png", bbox_inches = 'tight')
 
-tab2.image("geo_ownership.png", caption= 'Health Facilities', use_container_width=True)
+tab2.image("geo_ownership.png", caption= 'Health Facilities')
 
 color_purpose = {
     "Federal Government" : 'green',
@@ -251,5 +251,5 @@ ax.set_title("Nigeria Health Facilities Purpose Map")
 
 plt.savefig("geo_ownership.png", bbox_inches = 'tight')
 
-tab2.image("geo_ownership.png", caption= 'Health Facilities', use_container_width=True)
+tab2.image("geo_ownership.png", caption= 'Health Facilities')
 
