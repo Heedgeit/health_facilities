@@ -107,7 +107,7 @@ fig.update_traces(
     texttemplate = '%{y}'
 )
 
-tab2.plotly_chart(fig, use_container_width= False)
+tab1.plotly_chart(fig, use_container_width= False)
 
 df = gdf.groupby(['Geo_zones','ownership_',])['facility_1'].count().reset_index()
 
@@ -151,7 +151,7 @@ fig.update_traces(
     texttemplate = '%{y}'
 )
 
-tab3.plotly_chart(fig, use_container_width=False)
+tab1.plotly_chart(fig, use_container_width=False)
 
 df1 = gdf.groupby(['ownership','Geo_zones'])['ownership_'].count().reset_index()
 
