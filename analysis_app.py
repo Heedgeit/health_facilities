@@ -196,9 +196,13 @@ ax.legend(
 )
 ax.set_title("Nigeria Health Facilities Ownership Map")
 
-plt.savefig("geo_ownership.png", bbox_inches = 'tight')
+buffer = BytesIO()
 
-tab2.image("geo_ownership.png", caption= 'Health Facilities')
+plt.savefig(buffer,format='png',bbox_inches = 'tight')
+
+buffer.seek(0)
+
+tab2.image(buffer,use_container_width=True)
 
 color_zones = {
     "North West" : 'green',
@@ -222,9 +226,13 @@ ax.legend(
 )
 ax.set_title("Nigeria Health Facilities Zones Map")
 
-plt.savefig("geo_ownership.png", bbox_inches = 'tight')
+buffer = BytesIO()
 
-tab2.image("geo_ownership.png", caption= 'Health Facilities')
+plt.savefig(buffer,format='png',bbox_inches = 'tight')
+
+buffer.seek(0)
+
+tab2.image(buffer,use_container_width=True)
 
 color_purpose = {
     "Federal Government" : 'green',
@@ -249,7 +257,11 @@ ax.legend(
 )
 ax.set_title("Nigeria Health Facilities Purpose Map")
 
-plt.savefig("geo_ownership.png", bbox_inches = 'tight')
+buffer = BytesIO()
 
-tab2.image("geo_ownership.png", caption= 'Health Facilities')
+plt.savefig(buffer,format='png',bbox_inches = 'tight')
+
+buffer.seek(0)
+
+tab2.image(buffer,use_container_width=True)
 
