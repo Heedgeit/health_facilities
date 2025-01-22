@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 import seaborn as sns
+from io import BytesIO
 import plotly.express as px 
 import folium
 from folium.plugins import HeatMap, MarkerCluster
